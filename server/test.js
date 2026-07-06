@@ -7,7 +7,7 @@ async function testConnection() {
         console.log("✅ Connected to MongoDB Atlas!");
 
         await mongoose.connection.db.collection("test").insertOne({
-            message: "Hello MongoDB!",
+            message: "Hello MongoDB again!",
             createdAt: new Date()
         });
 

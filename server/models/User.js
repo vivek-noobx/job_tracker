@@ -21,7 +21,11 @@ const userSchema = new mongoose.Schema({
 
 
 userSchema.pre('save', async function () {
+    console.log("Pre-save hook started");
+
   this.password = await bcrypt.hash(this.password, 10);
+    console.log("Pre-save hook finished");
+
 });
 
 userSchema.methods.comparePassword = async function (typedPassword) {
