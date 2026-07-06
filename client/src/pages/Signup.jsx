@@ -22,7 +22,7 @@ function Signup() {
   };
 
   return (
-    <div>
+    <div className="container">
       <h2>Signup</h2>
       <form onSubmit={handleSubmit}>
         <input name="name" placeholder="Name" onChange={handleChange} />

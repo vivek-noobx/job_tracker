@@ -47,8 +47,8 @@ function Dashboard() {
   };
 
   return (
-    <div>
-      <h2>Dashboard</h2>
+    <div className="dashboard-container">
+      <h2>Job Applications</h2>
 
       <form onSubmit={handleCreate}>
         <input name="company" placeholder="Company" value={form.company} onChange={handleChange} />
@@ -63,12 +63,17 @@ function Dashboard() {
         <button type="submit">{editingId ? 'Update' : 'Add'} Application</button>
       </form>
 
-      <ul>
+      <ul className="app-list">
         {applications.map((app) => (
-          <li key={app._id}>
-            {app.company} — {app.role} — {app.status}
-            <button onClick={() => handleEditClick(app)}>Edit</button>
-            <button onClick={() => handleDelete(app._id)}>Delete</button>
+          <li key={app._id} className="app-card">
+            <div className="app-info">
+              <strong>{app.company}</strong> — {app.role}
+              <span className={`status-badge status-${app.status}`}>{app.status}</span>
+            </div>
+            <div className="app-actions">
+              <button onClick={() => handleEditClick(app)}>Edit</button>
+              <button className="btn-delete" onClick={() => handleDelete(app._id)}>Delete</button>
+            </div>
           </li>
         ))}
       </ul>
